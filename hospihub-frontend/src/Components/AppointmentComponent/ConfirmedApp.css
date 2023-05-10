@@ -1,0 +1,27 @@
+.confirmed-app {
+    background-image: url('../../../public/assetsTemplates/images/young-handsome-physician-medical-robe-with-stethoscope.jpg');
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .confirmed-app h1,
+  .confirmed-app p {
+    color: white;
+    text-align: center;
+  }
+  
+  .confirmed-app h1 {
+    font-size: 48px;
+    margin-bottom: 16px;
+    color: black;
+  }
+  
+  .confirmed-app p {
+    font-size: 24px;
+    margin-bottom: 32px;
+    color: black;
+  }
