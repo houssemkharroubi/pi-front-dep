@@ -11,7 +11,7 @@ import {
   selectReceiver,
   selectMeetWithPatient,
   selectUser,
-} from "../../redux/slices/userSelectedSlice";
+} from "../../Redux/slices/userSelectedSlice";
 import SidebarApp from "../FormsComponent/SidebarApp";
 
 function PatientList() {

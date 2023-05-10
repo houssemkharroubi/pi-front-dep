@@ -10,7 +10,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from "react-redux";
-import {setToken , selectToken} from "../../redux/slices/authSlice"
+import {setToken , selectToken} from "../../Redux/slices/authSlice"
 //import { setToken, selectToken } from "../../Redux/slices/authSlice"
 
 function SignInComponent() {
