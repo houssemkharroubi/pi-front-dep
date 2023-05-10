@@ -14,7 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import "./carousel.css"
 import NavbarComponent from "../NavBarComponent/NavbarComponent";
 import { useSelector } from "react-redux";
-import { selectToken } from "../../Redux/slices/authSlice";
+import { selectToken } from "../../reduxx/slices/authSlice";
 
 
 

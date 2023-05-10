@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import rootReducers from "./reducers";
+import rootReducers from "../reduxx/reducers";
 import thunk from "redux-thunk";
 import storage from "redux-persist/lib/storage"; //Storage Engine
 import { persistReducer, persistStore } from 'redux-persist';
