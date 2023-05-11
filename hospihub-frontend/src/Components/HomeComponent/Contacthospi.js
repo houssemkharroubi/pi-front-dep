@@ -14,7 +14,7 @@ function ContacthosptiComponent() {
                                 <img className="img-fluid" src="houssem.png" alt="houssem" />
                             </div>
                             <div className="team-text bg-light text-center p-4">
-                                <h5>Oussema Gadria</h5>
+                                <h5>Houssem Kharroubi</h5>
                                 <p className="text-primary">Full Stack Web Developer</p>
                                 <div className="team-social text-center">
                                     <a className="btn btn-square" href><i className="fab fa-github" /></a>
