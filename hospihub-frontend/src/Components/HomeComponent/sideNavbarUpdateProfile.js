@@ -24,7 +24,7 @@ const navigate=useNavigate()
     // });
      formData.append('file', uploadedFile, uploadedFile.name);
 
-    axios.put(`http://localhost:5000/patient/addImageProfile/${props.user._id}`, formData)
+    axios.put(`https://hospihub.onrender.com/patient/addImageProfile/${props.user._id}`, formData)
       .then((response) => {
         console.log(response.data)
         navigate(0)

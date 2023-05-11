@@ -30,7 +30,7 @@ function NavbarComponent() {
 
 
       axios
-        .get(`http://localhost:5000/patient/getUserById/${decodedToken.id}`)
+        .get(`https://hospihub.onrender.com/patient/getUserById/${decodedToken.id}`)
         .then((response) => {
           console.log(response.data.userName)
           console.log()

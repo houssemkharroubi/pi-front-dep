@@ -64,7 +64,7 @@ function SignInComponent() {
 
     // envoyer une requête POST à la fonction backend avec les paramètres email et password
     axios
-      .post("http://localhost:5000/login", {
+      .post("https://hospihub.onrender.com/login", {
         email: email,
         password: password,
         secret: secret,
@@ -80,7 +80,7 @@ function SignInComponent() {
           const id = decodedToken.id;
 
           axios
-            .get(`http://localhost:5000/patient/getUserById/${id}`)
+            .get(`https://hospihub.onrender.com/patient/getUserById/${id}`)
             .then((response) => {
               console.log('here')
               if (response.data.secret) {
@@ -218,7 +218,7 @@ function SignInComponent() {
                   </div>
                   <div className="social-links justify-content-center">
                     <a
-                      href="http://localhost:5000/auth/google"
+                      href="https://hospihub.onrender.com/auth/google"
                       className="bg-google"
                     >
                       <i className="mdi mdi-google" /> Connect with Google

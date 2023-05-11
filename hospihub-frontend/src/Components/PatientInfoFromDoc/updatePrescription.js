@@ -27,14 +27,14 @@ function UpdatePrescription() {
 
     useEffect(() => {
 
-        axios.get(`http://localhost:5000/patient/getUserById/${id}`)
+        axios.get(`https://hospihub.onrender.com/patient/getUserById/${id}`)
             .then(response => {
                 setUser(response.data);
             })
             .catch(error => {
                 console.error(error);
             });
-        axios.get(`http://localhost:5000/prescription/getPrescriptionByid/${idPrescription}`)
+        axios.get(`https://hospihub.onrender.com/prescription/getPrescriptionByid/${idPrescription}`)
             .then(response => {
                 setPrescription(response.data);
             })
@@ -46,7 +46,7 @@ function UpdatePrescription() {
         const token = localStorage.getItem('jwtToken');
         if (token) {
             const decodedToken = jwt_decode(token);
-            axios.get(`http://localhost:5000/patient/getUserById/${decodedToken.id}`)
+            axios.get(`https://hospihub.onrender.com/patient/getUserById/${decodedToken.id}`)
                 .then(response => {
                     setDoctor(response.data);
                 })
@@ -91,7 +91,7 @@ function UpdatePrescription() {
 
     const updatePrescription = (e) => {
         console.log("hello")
-        axios.put(`http://localhost:5000/prescription/updatePrescription/${idPrescription}`, Prescription)
+        axios.put(`https://hospihub.onrender.com/prescription/updatePrescription/${idPrescription}`, Prescription)
             .then((response) => {
                 console.log(response.data)
 
@@ -105,7 +105,7 @@ function UpdatePrescription() {
 
         const formData = new FormData();
         formData.append('file', file, file.name);
-        axios.put(`http://localhost:5000/prescription/addFileToPrescription/${idPrescription}`, formData)
+        axios.put(`https://hospihub.onrender.com/prescription/addFileToPrescription/${idPrescription}`, formData)
             .then((response) => {
                 console.log(response.data)
                 navigate(0)

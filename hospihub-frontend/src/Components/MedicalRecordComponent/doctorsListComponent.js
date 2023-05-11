@@ -20,7 +20,7 @@ function DoctorsListComponent() {
   const dispatch = useDispatch();
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/patient/getUserById/${decodedToken.id}`)
+      .get(`https://hospihub.onrender.com/patient/getUserById/${decodedToken.id}`)
       .then((response) => {
         setUser(response.data);
       })
@@ -30,7 +30,7 @@ function DoctorsListComponent() {
   }, []);
   useEffect(() => {
     axios
-      .post("http://localhost:5000/patient/getListDoctor", {
+      .post("https://hospihub.onrender.com/patient/getListDoctor", {
         patientId: decodedToken.id,
       })
       .then((response) => {
@@ -43,7 +43,7 @@ function DoctorsListComponent() {
   const handleClick = async (doctor) => {
     dispatch(selectUser(doctor.userName));
     dispatch(selectReceiver(doctor));
-    await axios.post("http://localhost:5000/chat", {
+    await axios.post("https://hospihub.onrender.com/chat", {
       userId: doctor._id,
       userConnectedId: decodedToken.id,
     });

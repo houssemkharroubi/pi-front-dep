@@ -18,7 +18,7 @@ function BloodComponent() {
   console.log(decodedToken.id);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/patient/getUserById/${decodedToken.id}`)
+      .get(`https://hospihub.onrender.com/patient/getUserById/${decodedToken.id}`)
       .then((response) => {
         setUser(response.data);
       })
@@ -31,7 +31,7 @@ function BloodComponent() {
     if (User) {
       axios
         .get(
-          `http://localhost:5000/MedicalRecord/findMedicalRecordById/${User.MedicalRecord}`
+          `https://hospihub.onrender.com/MedicalRecord/findMedicalRecordById/${User.MedicalRecord}`
         )
         .then((response) => {
           setMedicalRecord(response.data);
@@ -51,7 +51,7 @@ function BloodComponent() {
     console.log(MedicalRecord);
     axios
       .put(
-        `http://localhost:5000/MedicalRecord/update/${User.MedicalRecord}`,
+        `https://hospihub.onrender.com/MedicalRecord/update/${User.MedicalRecord}`,
         MedicalRecord
       )
 

@@ -92,7 +92,7 @@ function UpdateMedicalRecordComponent(props) {
 
       console.log(decodedToken.id);
       axios
-        .get(`http://localhost:5000/patient/getUserById/${decodedToken.id}`)
+        .get(`https://hospihub.onrender.com/patient/getUserById/${decodedToken.id}`)
         .then((response) => {
           setUser(response.data);
           console.log(response.data);
@@ -108,7 +108,7 @@ function UpdateMedicalRecordComponent(props) {
     if (User) {
       axios
         .get(
-          `http://localhost:5000/MedicalRecord/findMedicalRecordById/${User.MedicalRecord}`
+          `https://hospihub.onrender.com/MedicalRecord/findMedicalRecordById/${User.MedicalRecord}`
         )
         .then((response) => {
           setMedicalRecord(response.data);
@@ -135,7 +135,7 @@ function UpdateMedicalRecordComponent(props) {
     console.log(MedicalRecord);
     axios
       .put(
-        `http://localhost:5000/MedicalRecord/update/${User.MedicalRecord}`,
+        `https://hospihub.onrender.com/MedicalRecord/update/${User.MedicalRecord}`,
         MedicalRecord
       )
       .then((response) => {

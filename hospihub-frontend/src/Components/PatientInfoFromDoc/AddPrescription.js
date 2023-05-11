@@ -30,7 +30,7 @@ function AddPrescriptionComponent() {
 
     useEffect(() => {
 
-        axios.get(`http://localhost:5000/patient/getUserById/${id}`)
+        axios.get(`https://hospihub.onrender.com/patient/getUserById/${id}`)
             .then(response => {
 
                 setUser(response.data);
@@ -112,12 +112,12 @@ function AddPrescriptionComponent() {
             console.log(newPrescription)
             console.log(id)
             console.log(decodedToken.id)
-            axios.post(`http://localhost:5000/prescription/addPrescriptionwithDoctorAndPatient/${decodedToken.id}/${id}`, newPrescription)
+            axios.post(`https://hospihub.onrender.com/prescription/addPrescriptionwithDoctorAndPatient/${decodedToken.id}/${id}`, newPrescription)
                 .then((response) => {
                     console.log(response.data)
                     const formData = new FormData();
                     formData.append('file', file, file.name);
-                    axios.put(`http://localhost:5000/prescription/addFileToPrescription/${response.data._id}`, formData)
+                    axios.put(`https://hospihub.onrender.com/prescription/addFileToPrescription/${response.data._id}`, formData)
                         .then((response) => {
                             console.log(response.data)
                             

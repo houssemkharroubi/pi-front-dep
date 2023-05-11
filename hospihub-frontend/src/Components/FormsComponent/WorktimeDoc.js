@@ -29,7 +29,7 @@ function WorktimeDoc() {
   const handleSubmit = () => {
     if (dates.length > 0) {
       axios
-        .put(`http://localhost:5000/appointment/addApp/${doctorId}`, {
+        .put(`https://hospihub.onrender.com/appointment/addApp/${doctorId}`, {
           WorkTime: dates,
         })
         .then((response) => {
@@ -65,7 +65,7 @@ function WorktimeDoc() {
     if (token) {
       const decodedToken = jwt_decode(token);
       axios
-        .get(`http://localhost:5000/patient/getUserById/${decodedToken.id}`)
+        .get(`https://hospihub.onrender.com/patient/getUserById/${decodedToken.id}`)
         .then((response) => {
           setDoctor(response.data);
           setDoctorId(response.data._id);

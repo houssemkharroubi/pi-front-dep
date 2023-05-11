@@ -8,7 +8,7 @@ function ForgotPasswordComponent() {
     const navigate = useNavigate();
     const handleForgetPassword = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:5000/forget-password',{email:email}).then( () => {
+        axios.post('https://hospihub.onrender.com/forget-password',{email:email}).then( () => {
           navigate('/EmailVerifiaction');
   }).catch((error)=>{ 
      if (error.response.data['msg']){

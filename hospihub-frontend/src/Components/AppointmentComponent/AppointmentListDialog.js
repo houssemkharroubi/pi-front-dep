@@ -57,7 +57,7 @@ function AppointmentListDialog(props) {
 
 
   async function handleTakeAppointment() {
-    const response = await axios.put(`http://localhost:5000/patient/appointments/${selectedAppointmentId}/take`, {
+    const response = await axios.put(`https://hospihub.onrender.com/patient/appointments/${selectedAppointmentId}/take`, {
       patientId: decodedToken.id
     });
     window.location.href = '/Medicalrecord/PatientApp';

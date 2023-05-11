@@ -16,7 +16,7 @@ function ShowPrescription() {
         const token = localStorage.getItem('jwtToken');
         if (token) {
             const decodedToken = jwt_decode(token);
-            axios.get(`http://localhost:5000/patient/getUserById/${decodedToken.id}`)
+            axios.get(`https://hospihub.onrender.com/patient/getUserById/${decodedToken.id}`)
                 .then(response => {
                     setPatient(response.data);
                 })
@@ -24,7 +24,7 @@ function ShowPrescription() {
                     console.error(error);
                 });
 
-            axios.get(`http://localhost:5000/prescription/getPrescriptionByid/${idPrescription}`)
+            axios.get(`https://hospihub.onrender.com/prescription/getPrescriptionByid/${idPrescription}`)
                 .then(response => {
                     setPrescription(response.data);
                     setIsLoaded(true);
@@ -52,7 +52,7 @@ function ShowPrescription() {
     //     html2pdf().from(prescriptionDetails).set(options).save();
     //   };
     const handleDownload = () => {
-        axios.post('http://localhost:5000/doctor/generate-pdf', { prescriptionDetails: Prescription }, {
+        axios.post('https://hospihub.onrender.com/doctor/generate-pdf', { prescriptionDetails: Prescription }, {
           responseType: 'arraybuffer'
         })
         .then(response => {

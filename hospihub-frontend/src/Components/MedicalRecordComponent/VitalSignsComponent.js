@@ -21,7 +21,7 @@ function VitalSignsComponent(props) {
     const [MedicalRecord, setMedicalRecord] = useState({})
     const [uploadedFiles, setUploadedFiles] = useState([])
     const [fileLimit, setFileLimit] = useState(false);
-    const baseUrl = "http://localhost:5000/uploads/";
+    const baseUrl = "https://hospihub.onrender.com/uploads/";
     const [ConfirmeMessage, setConfirmeMessage] = useState(false);
     const navigate = useNavigate()
     const [currentImage, setCurrentImage] = useState(null);
@@ -107,7 +107,7 @@ function VitalSignsComponent(props) {
             const decodedToken = jwt_decode(token);
 
 
-            axios.get(`http://localhost:5000/patient/getUserById/${decodedToken.id}`)
+            axios.get(`https://hospihub.onrender.com/patient/getUserById/${decodedToken.id}`)
                 .then(response => {
 
                     setUser(response.data);
@@ -122,7 +122,7 @@ function VitalSignsComponent(props) {
 
     useEffect(() => {
         if (User) {
-            axios.get(`http://localhost:5000/MedicalRecord/findMedicalRecordById/${User.MedicalRecord}`)
+            axios.get(`https://hospihub.onrender.com/MedicalRecord/findMedicalRecordById/${User.MedicalRecord}`)
                 .then(response => {
                     setMedicalRecord(response.data);
                     setFiles(response.data.files)
@@ -184,7 +184,7 @@ function VitalSignsComponent(props) {
         e.preventDefault();
 
 
-        axios.put(`http://localhost:5000/MedicalRecord/update/${User.MedicalRecord}`, MedicalRecord)
+        axios.put(`https://hospihub.onrender.com/MedicalRecord/update/${User.MedicalRecord}`, MedicalRecord)
             .then((response) => {
                 console.log(response.data)
                 console.log("medical record updated successfully")
@@ -206,7 +206,7 @@ function VitalSignsComponent(props) {
             formData.append('file', file, file.name);
             console.log(formData)
         });
-        axios.put(`http://localhost:5000/MedicalRecord/addImagingReports/${User.MedicalRecord}`, formData)
+        axios.put(`https://hospihub.onrender.com/MedicalRecord/addImagingReports/${User.MedicalRecord}`, formData)
             .then((response) => {
                 console.log(response.data)
                 console.log("medical record updated successfully")
@@ -231,7 +231,7 @@ function VitalSignsComponent(props) {
             formData.append('file', file, file.name);
             console.log(formData)
         });
-        axios.put(`http://localhost:5000/MedicalRecord/addLaboratoryReports/${User.MedicalRecord}`, formData)
+        axios.put(`https://hospihub.onrender.com/MedicalRecord/addLaboratoryReports/${User.MedicalRecord}`, formData)
             .then((response) => {
                 console.log(response.data)
                 console.log("medical record updated successfully")
@@ -255,7 +255,7 @@ function VitalSignsComponent(props) {
             formData.append('file', file, file.name);
             console.log(formData)
         });
-        axios.put(`http://localhost:5000/MedicalRecord/addMedicalHistory/${User.MedicalRecord}`, formData)
+        axios.put(`https://hospihub.onrender.com/MedicalRecord/addMedicalHistory/${User.MedicalRecord}`, formData)
             .then((response) => {
                 console.log(response.data)
                 console.log("medical record updated successfully")
@@ -279,7 +279,7 @@ function VitalSignsComponent(props) {
             formData.append('file', file, file.name);
             console.log(formData)
         });
-        axios.put(`http://localhost:5000/MedicalRecord/addInsuranceClaims/${User.MedicalRecord}`, formData)
+        axios.put(`https://hospihub.onrender.com/MedicalRecord/addInsuranceClaims/${User.MedicalRecord}`, formData)
             .then((response) => {
                 console.log(response.data)
                 console.log("medical record updated successfully")
@@ -296,7 +296,7 @@ function VitalSignsComponent(props) {
     }
     ////////////////////////////////
     const handleDeleteImagingReports = (fileName) => {
-        axios.delete(`http://localhost:5000/MedicalRecord/deleteFileOfImagingReports/${User.MedicalRecord}/${fileName}`)
+        axios.delete(`https://hospihub.onrender.com/MedicalRecord/deleteFileOfImagingReports/${User.MedicalRecord}/${fileName}`)
             .then((response) => {
                 console.log(response.data);
                 // setFiles(files.filter((file) => file !== fileName));
@@ -307,7 +307,7 @@ function VitalSignsComponent(props) {
     };
 
     const handleDeleteLaboratoryReports = (fileName) => {
-        axios.delete(`http://localhost:5000/MedicalRecord/deleteFileOflaboratoryReports/${User.MedicalRecord}/${fileName}`)
+        axios.delete(`https://hospihub.onrender.com/MedicalRecord/deleteFileOflaboratoryReports/${User.MedicalRecord}/${fileName}`)
             .then((response) => {
                 console.log(response.data);
                 // setFiles(files.filter((file) => file !== fileName));
@@ -318,7 +318,7 @@ function VitalSignsComponent(props) {
     };
 
     const handleDeleteMedicalHistory = (fileName) => {
-        axios.delete(`http://localhost:5000/MedicalRecord/deleteFileOfMedicalHistory/${User.MedicalRecord}/${fileName}`)
+        axios.delete(`https://hospihub.onrender.com/MedicalRecord/deleteFileOfMedicalHistory/${User.MedicalRecord}/${fileName}`)
             .then((response) => {
                 console.log(response.data);
                 // setFiles(files.filter((file) => file !== fileName));
@@ -330,7 +330,7 @@ function VitalSignsComponent(props) {
 
 
     const handleDeleteInsuranceClaims = (fileName) => {
-        axios.delete(`http://localhost:5000/MedicalRecord/deleteFileOfInsuranceClaims/${User.MedicalRecord}/${fileName}`)
+        axios.delete(`https://hospihub.onrender.com/MedicalRecord/deleteFileOfInsuranceClaims/${User.MedicalRecord}/${fileName}`)
             .then((response) => {
                 console.log(response.data);
                 // setFiles(files.filter((file) => file !== fileName));

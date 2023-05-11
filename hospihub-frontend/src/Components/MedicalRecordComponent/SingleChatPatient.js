@@ -9,8 +9,8 @@ import ScrollableChat from './ScrollableChat';
 import io from "socket.io-client" ;
 
 function SingleChatPatient() {
-  const socket=io("http://localhost:5000");
-  const ENDPOINT="http://localhost:5000"; 
+  const socket=io("https://hospihub.onrender.com");
+  const ENDPOINT="https://hospihub.onrender.com"; 
   var selectedChatCompare ;
   const [socketConnected,setSocketConnected]=useState(false);
   const [User, setUser] = useState({});
@@ -29,7 +29,7 @@ function SingleChatPatient() {
 
     useEffect(() => {
         axios
-          .get(`http://localhost:5000/patient/getUserById/${decodedToken.id}`)
+          .get(`https://hospihub.onrender.com/patient/getUserById/${decodedToken.id}`)
           .then((response) => {
             setUser(response.data);           
           })
@@ -45,7 +45,7 @@ function SingleChatPatient() {
   },[]);
       useEffect(() => {      
       axios
-          .post("http://localhost:5000/chat/getChat",{ 
+          .post("https://hospihub.onrender.com/chat/getChat",{ 
             userConnectedId:decodedToken.id,
             userReceivedId:selectedReceiver._id
           })
@@ -72,7 +72,7 @@ function SingleChatPatient() {
     }
     const chatId=await selectedChat[0]._id
     try{ 
-      const data=await axios.get(`http://localhost:5000/message/${chatId}`);
+      const data=await axios.get(`https://hospihub.onrender.com/message/${chatId}`);
       const contents = data.data.map((message) => message.content);
       setMessages(data.data)
       setMessagesProps(data)
@@ -93,7 +93,7 @@ function SingleChatPatient() {
   const sendMessage=async()=>{ 
     try{ 
         const data=await axios 
-        .post("http://localhost:5000/message/sendMessage",{ 
+        .post("https://hospihub.onrender.com/message/sendMessage",{ 
             content:newMessage, 
             chatId:selectedChat[0]._id,
             userConnectedId:decodedToken.id

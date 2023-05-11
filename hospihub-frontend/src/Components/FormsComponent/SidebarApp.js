@@ -15,7 +15,7 @@ function SidebarApp() {
     if (token) {
       const decodedToken = jwt_decode(token);
       axios
-        .get(`http://localhost:5000/patient/getUserById/${decodedToken.id}`)
+        .get(`https://hospihub.onrender.com/patient/getUserById/${decodedToken.id}`)
         .then((response) => {
           setDoctor(response.data);
         })
@@ -40,7 +40,7 @@ function SidebarApp() {
 
     axios
       .put(
-        `http://localhost:5000/patient/addImageProfile/${doctor._id}`,
+        `https://hospihub.onrender.com/patient/addImageProfile/${doctor._id}`,
         formData
       )
       .then((response) => {

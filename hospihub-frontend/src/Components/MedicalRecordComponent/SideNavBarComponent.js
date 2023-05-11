@@ -25,7 +25,7 @@ function SideNavBarComponent(props) {
 
     axios
       .put(
-        `http://localhost:5000/patient/addImageProfile/${props.user._id}`,
+        `https://hospihub.onrender.com/patient/addImageProfile/${props.user._id}`,
         formData
       )
       .then((response) => {

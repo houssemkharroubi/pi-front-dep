@@ -15,7 +15,7 @@ function ListPrescriptionsforPatient () {
         const token = localStorage.getItem('jwtToken');
         if (token) {
             const decodedToken = jwt_decode(token);
-            axios.get(`http://localhost:5000/prescription/getAllPrescriptionsByIdPatient/${decodedToken.id}`)
+            axios.get(`https://hospihub.onrender.com/prescription/getAllPrescriptionsByIdPatient/${decodedToken.id}`)
                 .then(response => {
                     setprescriptions(response.data);
                     
@@ -24,7 +24,7 @@ function ListPrescriptionsforPatient () {
                     console.error(error);
                 });
 
-            axios.get(`http://localhost:5000/patient/getUserById/${decodedToken.id}`)
+            axios.get(`https://hospihub.onrender.com/patient/getUserById/${decodedToken.id}`)
                 .then(response => {
                     setPatient(response.data);
                 })

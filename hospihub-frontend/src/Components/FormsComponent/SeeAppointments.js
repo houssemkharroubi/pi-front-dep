@@ -40,7 +40,7 @@ function SeeAppointments() {
             setShowAlert1(false);
         }, 3000);
         axios
-            .put(`http://localhost:5000/doctor/appointments/${id}/verifie`)
+            .put(`https://hospihub.onrender.com/doctor/appointments/${id}/verifie`)
             .then((response) => {
                 // toast.success(`you have completed an appointment`, {
                 //     position: toast.POSITION.BOTTOM_RIGHT,
@@ -66,7 +66,7 @@ function SeeAppointments() {
     };
 
     const handleConfirmDismisspopup = (id, patientID) => {
-        axios.delete(`http://localhost:5000/patient/deleteAppointment/${patientID}/${id}`, {
+        axios.delete(`https://hospihub.onrender.com/patient/deleteAppointment/${patientID}/${id}`, {
             data: { idAppointment: id }
         }).then((response) => {
             setAppointments(
@@ -87,17 +87,17 @@ function SeeAppointments() {
         if (token) {
             const decodedToken = jwt_decode(token);
             axios
-                .get(`http://localhost:5000/patient/getUserById/${decodedToken.id}`)
+                .get(`https://hospihub.onrender.com/patient/getUserById/${decodedToken.id}`)
                 .then((response) => {
                     setDoctor(response.data);
                     axios
                         .get(
-                            `http://localhost:5000/appointment/getappbydoc/${response.data._id}`
+                            `https://hospihub.onrender.com/appointment/getappbydoc/${response.data._id}`
                         )
                         .then((response) => {
                             setAppointments(response.data);
                             const promises = response.data.map((appointment) =>
-                                axios.get(`http://localhost:5000/patient/getUserById/${appointment.Patient}`)
+                                axios.get(`https://hospihub.onrender.com/patient/getUserById/${appointment.Patient}`)
                             );
                             Promise.all(promises)
                                 .then((responses) => {

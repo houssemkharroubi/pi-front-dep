@@ -15,7 +15,7 @@ function List () {
         const token = localStorage.getItem('jwtToken');
         if (token) {
             const decodedToken = jwt_decode(token);
-            axios.get(`http://localhost:5000/patient/getUserById/${decodedToken.id}`)
+            axios.get(`https://hospihub.onrender.com/patient/getUserById/${decodedToken.id}`)
                 .then(response => {
                     setUser(response.data);
                 })
@@ -30,9 +30,9 @@ function List () {
         const token = localStorage.getItem('jwtToken');
         const decodedToken = jwt_decode(token);
 
-        const response = await axios.get(`http://localhost:5000/patient/getAppointment/${decodedToken.id}`);
+        const response = await axios.get(`https://hospihub.onrender.com/patient/getAppointment/${decodedToken.id}`);
         const appointmentsWithServiceName = await Promise.all(response.data.map(async (appointment) => {
-            const serviceResponse = await axios.get(`http://localhost:5000/service/getServiceById/${appointment.HospitalService}`);
+            const serviceResponse = await axios.get(`https://hospihub.onrender.com/service/getServiceById/${appointment.HospitalService}`);
             console.log("Service Response: ", serviceResponse);
 
             const serviceName = serviceResponse.data.ServiceName;
@@ -51,7 +51,7 @@ function List () {
         const decodedToken = jwt_decode(token);
         
         axios
-          .delete(`http://localhost:5000/patient/deleteAppointment/${decodedToken.id}/${appointmentId}`)
+          .delete(`https://hospihub.onrender.com/patient/deleteAppointment/${decodedToken.id}/${appointmentId}`)
           .then((response) => {
             console.log(response.data);
             

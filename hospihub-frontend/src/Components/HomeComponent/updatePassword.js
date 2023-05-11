@@ -24,7 +24,7 @@ function UpdateProfile() {
     if (token) {
       const decodedToken = jwt_decode(token);
       axios
-        .get(`http://localhost:5000/patient/getUserById/${decodedToken.id}`)
+        .get(`https://hospihub.onrender.com/patient/getUserById/${decodedToken.id}`)
         .then((response) => {
           setUser(response.data);
         })
@@ -38,7 +38,7 @@ function UpdateProfile() {
     const decodedToken = jwt_decode(token);
     axios
       .put(
-        `http://localhost:5000/doctor/updatePasswordDoctor/${decodedToken.id}`,
+        `https://hospihub.onrender.com/doctor/updatePasswordDoctor/${decodedToken.id}`,
         {
           oldPassword: oldPassword,
           newPassword: newPassword,

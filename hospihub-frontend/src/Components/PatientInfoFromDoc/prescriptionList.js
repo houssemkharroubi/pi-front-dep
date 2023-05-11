@@ -18,7 +18,7 @@ function ListPrescription(props) {
 
     useEffect(() => {
 
-        axios.get(`http://localhost:5000/patient/getUserById/${id}`)
+        axios.get(`https://hospihub.onrender.com/patient/getUserById/${id}`)
             .then(response => {
                 setUser(response.data);
             })
@@ -30,7 +30,7 @@ function ListPrescription(props) {
 
         if (token) {
             const decodedToken = jwt_decode(token);
-            axios.get(`http://localhost:5000/prescription/getAllPrescriptionsByIdPatientAndDoctor/${decodedToken.id}/${id}`)
+            axios.get(`https://hospihub.onrender.com/prescription/getAllPrescriptionsByIdPatientAndDoctor/${decodedToken.id}/${id}`)
                 .then(response => {
                     setprescriptions(response.data);
                 })
@@ -38,7 +38,7 @@ function ListPrescription(props) {
                     console.error(error);
                 });
 
-            axios.get(`http://localhost:5000/patient/getUserById/${decodedToken.id}`)
+            axios.get(`https://hospihub.onrender.com/patient/getUserById/${decodedToken.id}`)
                 .then(response => {
                     setDoctor(response.data);
                 })
@@ -53,10 +53,10 @@ function ListPrescription(props) {
         const token = localStorage.getItem('jwtToken');
         if (token) {
         const decodedToken = jwt_decode(token);
-        axios.delete(`http://localhost:5000/prescription/deletePrescription/${IdPrescription}`)
+        axios.delete(`https://hospihub.onrender.com/prescription/deletePrescription/${IdPrescription}`)
             .then((response) => {
                 console.log(response.data)
-                axios.get(`http://localhost:5000/prescription/getAllPrescriptionsByIdPatientAndDoctor/${decodedToken.id}/${id}`)
+                axios.get(`https://hospihub.onrender.com/prescription/getAllPrescriptionsByIdPatientAndDoctor/${decodedToken.id}/${id}`)
                 .then(response => {
                     setprescriptions(response.data);
                 })

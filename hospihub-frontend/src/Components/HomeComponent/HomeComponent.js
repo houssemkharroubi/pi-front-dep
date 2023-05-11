@@ -37,7 +37,7 @@ function HomeComponent() {
       localStorage.setItem("jwtToken", jwt);
       const decodedToken = jwt_decode(jwt);
       axios
-        .get(`http://localhost:5000/patient/getUserById/${decodedToken.id}`)
+        .get(`https://hospihub.onrender.com/patient/getUserById/${decodedToken.id}`)
         .then(response => {
           toast.success(`Welcome ${response.data.userName}`, {
             position: toast.POSITION.BOTTOM_RIGHT

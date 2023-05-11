@@ -38,7 +38,7 @@ function UpdateProfile() {
     if (token) {
       const decodedToken = jwt_decode(token);
       axios
-        .get(`http://localhost:5000/patient/getUserById/${decodedToken.id}`)
+        .get(`https://hospihub.onrender.com/patient/getUserById/${decodedToken.id}`)
         .then((response) => {
           setUser(response.data);
         })
@@ -47,7 +47,7 @@ function UpdateProfile() {
         });
       axios
         .get(
-          `http://localhost:5000/MedicalRecord/findMedicalRecordById/${User.MedicalRecord}`
+          `https://hospihub.onrender.com/MedicalRecord/findMedicalRecordById/${User.MedicalRecord}`
         )
         .then((response) => {
           setMedicalRecord(response.data);
@@ -93,7 +93,7 @@ function UpdateProfile() {
       const decodedToken = jwt_decode(token);
       axios
         .put(
-          `http://localhost:5000/patient/updatePatient/${decodedToken.id}`,
+          `https://hospihub.onrender.com/patient/updatePatient/${decodedToken.id}`,
           User
         )
         .then((response) => {
@@ -102,7 +102,7 @@ function UpdateProfile() {
         });
       axios
         .put(
-          `http://localhost:5000/MedicalRecord/update/${User.MedicalRecord}`,
+          `https://hospihub.onrender.com/MedicalRecord/update/${User.MedicalRecord}`,
           MedicalRecord
         )
         .then((response) => {
@@ -121,7 +121,7 @@ function UpdateProfile() {
     const id = decodedToken.id;
 
     axios
-      .post(`http://localhost:5000/patient/verifSms/${id}`, { codeEnter: opt })
+      .post(`https://hospihub.onrender.com/patient/verifSms/${id}`, { codeEnter: opt })
       .then((response) => {
         setgrearCode(true);
         setincorrectCode(false);
@@ -167,7 +167,7 @@ function UpdateProfile() {
     const decodedToken = jwt_decode(token);
     const id = decodedToken.id;
     const phone = phoneCode + User.phoneNumber;
-    axios.post(`http://localhost:5000/patient/sendSms/${id}`, { phone: phone });
+    axios.post(`https://hospihub.onrender.com/patient/sendSms/${id}`, { phone: phone });
   };
   const handleSelectedCountry = (countryCode) => {
     const callingCode = getCountryCallingCode(countryCode);

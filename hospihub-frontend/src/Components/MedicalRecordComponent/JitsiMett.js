@@ -12,7 +12,7 @@ function JitsiMett () {
   state.userSelectedSlice.meetWithPatient);
   useEffect(() => {
     axios
-  .get(`http://localhost:5000/patient/getUserById/${decodedToken.id}`)
+  .get(`https://hospihub.onrender.com/patient/getUserById/${decodedToken.id}`)
   .then((response) => {
     console.log("response is "+ response.data.userName)
     setUser(response.data.userName)

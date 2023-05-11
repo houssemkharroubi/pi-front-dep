@@ -31,7 +31,7 @@ function PatientList() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/patient/getUserById/${decodedToken.id}`)
+      .get(`https://hospihub.onrender.com/patient/getUserById/${decodedToken.id}`)
       .then((response) => {
         setUser(response.data);
       })
@@ -42,7 +42,7 @@ function PatientList() {
 
   useEffect(() => {
     axios
-      .post("http://localhost:5000/doctor/getPatientList", {
+      .post("https://hospihub.onrender.com/doctor/getPatientList", {
         doctorId: decodedToken.id,
       })
       .then((response) => {
@@ -74,7 +74,7 @@ function PatientList() {
   const handleClick = async (patient) => {
     dispatch(selectUser(patient.userName));
     dispatch(selectReceiver(patient));
-    await axios.post("http://localhost:5000/chat", {
+    await axios.post("https://hospihub.onrender.com/chat", {
       userId: patient._id,
       userConnectedId: decodedToken.id,
     });
@@ -84,7 +84,7 @@ function PatientList() {
   const handleLaunchMeeting = async(a) => {
     dispatch(selectMeetWithPatient(a));
     navigate("/Meet");
-    await axios.post(`http://localhost:5000/patient/appointments/${a.email}/${User.userName}/${a._id}`)
+    await axios.post(`https://hospihub.onrender.com/patient/appointments/${a.email}/${User.userName}/${a._id}`)
   };
 
   return (

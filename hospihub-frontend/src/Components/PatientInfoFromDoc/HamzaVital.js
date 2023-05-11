@@ -22,7 +22,7 @@ function HamzaVital(props) {
     const [MedicalRecord, setMedicalRecord] = useState({})
     const [uploadedFiles, setUploadedFiles] = useState([])
     const [fileLimit, setFileLimit] = useState(false);
-    const baseUrl = "http://localhost:5000/uploads/";
+    const baseUrl = "https://hospihub.onrender.com/uploads/";
     const [ConfirmeMessage, setConfirmeMessage] = useState(false);
     const navigate = useNavigate()
     const [currentImage, setCurrentImage] = useState(null);
@@ -106,7 +106,7 @@ function HamzaVital(props) {
         if (id) {
 
 
-            axios.get(`http://localhost:5000/patient/getUserById/${id}`)
+            axios.get(`https://hospihub.onrender.com/patient/getUserById/${id}`)
                 .then(response => {
 
                     setUser(response.data);
@@ -122,7 +122,7 @@ function HamzaVital(props) {
 
     useEffect(() => {
         if (User) {
-            axios.get(`http://localhost:5000/MedicalRecord/findMedicalRecordById/${User.MedicalRecord}`)
+            axios.get(`https://hospihub.onrender.com/MedicalRecord/findMedicalRecordById/${User.MedicalRecord}`)
                 .then(response => {
                     setMedicalRecord(response.data);
                     setFiles(response.data.files)
@@ -157,7 +157,7 @@ function HamzaVital(props) {
             formData.append('file', file, file.name);
             console.log(formData)
         });
-        axios.put(`http://localhost:5000/MedicalRecord/addImagingReports/${User.MedicalRecord}`, formData)
+        axios.put(`https://hospihub.onrender.com/MedicalRecord/addImagingReports/${User.MedicalRecord}`, formData)
             .then((response) => {
                 console.log(response.data)
                 console.log("medical record updated successfully")

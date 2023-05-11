@@ -37,7 +37,7 @@ const {
 useEffect(() => {
 
     if (id) {
-        axios.get(`http://localhost:5000/patient/getUserById/${id}`)
+        axios.get(`https://hospihub.onrender.com/patient/getUserById/${id}`)
             .then(response => {
                 setUser(response.data);
                 console.log(response.data);
@@ -54,7 +54,7 @@ useEffect(() => {
 
 useEffect(() => {
     if (User) {
-        axios.get(`http://localhost:5000/MedicalRecord/findMedicalRecordById/${User.MedicalRecord}`)
+        axios.get(`https://hospihub.onrender.com/MedicalRecord/findMedicalRecordById/${User.MedicalRecord}`)
             .then(response => {
                 setMedicalRecord(response.data);
 

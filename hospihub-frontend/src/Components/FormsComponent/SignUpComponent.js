@@ -66,7 +66,7 @@ function SignUpComponent() {
 
 
     try {
-      axios.post('http://localhost:5000/signup/', {
+      axios.post('https://hospihub.onrender.com/signup/', {
         userName: userName,
         firstName: firstName,
         lastName: lastName,
@@ -88,7 +88,7 @@ function SignUpComponent() {
             return;
           }
           if (service) {
-            axios.put(`http://localhost:5000/doctor/updateDoctorService/${response.data.data._id}/${service}/${hospital}`);
+            axios.put(`https://hospihub.onrender.com/doctor/updateDoctorService/${response.data.data._id}/${service}/${hospital}`);
           }
           navigate(`/EmailVerifiaction/${response.data.data._id}`);
         }
@@ -119,7 +119,7 @@ function SignUpComponent() {
 
   useEffect(() => {
     async function fetchHospitals() {
-      const response = await axios.get('http://localhost:5000/hospital/getAllHospitals');
+      const response = await axios.get('https://hospihub.onrender.com/hospital/getAllHospitals');
       setHospitals(response.data);
     }
     fetchHospitals();
@@ -129,7 +129,7 @@ function SignUpComponent() {
     async function fetchServices() {
       if (hospital) {
         setServices()
-        const response = await axios.get(`http://localhost:5000/service/gethospitalservices/${hospital}`);
+        const response = await axios.get(`https://hospihub.onrender.com/service/gethospitalservices/${hospital}`);
         setServices(response.data);
       }
     }

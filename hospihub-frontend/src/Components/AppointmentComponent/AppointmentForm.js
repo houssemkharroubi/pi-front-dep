@@ -24,7 +24,7 @@ function AppointmentForm() {
 
   useEffect(() => {
     async function fetchHospitals() {
-      const response = await axios.get('http://localhost:5000/patient/hospitals');
+      const response = await axios.get('https://hospihub.onrender.com/patient/hospitals');
       setHospitals(response.data);
     }
     fetchHospitals();
@@ -34,13 +34,13 @@ function AppointmentForm() {
   async function handleHospitalChange(event) {
     const hospitalId = event.target.value;
 
-    const response = await axios.get(`http://localhost:5000/patient/services/${hospitalId}`);
+    const response = await axios.get(`https://hospihub.onrender.com/patient/services/${hospitalId}`);
     setHospitalServices(response.data);
   }
 
   async function handleSearch ()  {
     try {
-    const response = await axios.get(`http://localhost:5000/doctor/getDoctorAppointmentsWithLeastPatients/${selectedServiceId}`);
+    const response = await axios.get(`https://hospihub.onrender.com/doctor/getDoctorAppointmentsWithLeastPatients/${selectedServiceId}`);
     setAppointments(response.data);
     setShowNoAppointmentsMessage(false);
     console.log("testtt :", response.data)

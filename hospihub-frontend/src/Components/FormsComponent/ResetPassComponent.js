@@ -17,7 +17,7 @@ function ResetPasswordComponent() {
   const handleResetPassword = (e) => {
     e.preventDefault();
     if(passwordRegex.test(password)){
-      axios.post(`http://localhost:5000/reset-password/${token}`, { password: password })
+      axios.post(`https://hospihub.onrender.com/reset-password/${token}`, { password: password })
         .then(() => {
           setSuccessMessage('User password has been reset');
           navigate('/SignIn');
